@@ -1,0 +1,6 @@
+
+> talkfusion@1.0.0 start
+> node backend/server.js
+
+Listening on port 5001
+✅ Connected to MongoDB successfully

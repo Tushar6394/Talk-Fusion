@@ -34,7 +34,8 @@ export const sendMessage = async (req, res) => {
     await Promise.all([conversation.save(), newMessage.save()]);
     res.status(201).json(newMessage);
   } catch (error) {
-    console.log("Error in sendMessage Controller due to ", error);
+    console.error("Error in sendMessage Controller due to ", error.message);
+    console.error("Full error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

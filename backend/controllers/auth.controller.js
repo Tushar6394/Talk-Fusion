@@ -51,7 +51,7 @@ const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-    const girlProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+    const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
     const newUser = new User({
       fullName,
@@ -61,8 +61,9 @@ const signup = async (req, res) => {
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
     });
 
-    generateTokenAndSetCookie(newUser._id, res);
     await newUser.save();
+    
+    generateTokenAndSetCookie(newUser._id, res);
 
     res.status(201).json({
       _id: newUser._id,
@@ -71,7 +72,8 @@ const signup = async (req, res) => {
       profilePic: newUser.profilePic,
     });
   } catch (error) {
-    console.log("Error in Signup Controller due to ", error);
+    console.error("Error in Signup Controller due to ", error.message);
+    console.error("Full error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
