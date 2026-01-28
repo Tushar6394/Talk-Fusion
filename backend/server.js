@@ -32,6 +32,21 @@ const PORT = process.env.PORT || 5001; // Changed port to 5001
 
 app.use(cookieParser());
 app.use(express.json());
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "✅ Backend is running",
+    timestamp: new Date().toISOString(),
+    environment: {
+      NODE_ENV: process.env.NODE_ENV || "development",
+      PORT: process.env.PORT || 5001,
+      JWT_SECRET: process.env.JWT_SECRET ? "✅ Set" : "❌ NOT SET",
+      MONGO_DB_URI: process.env.MONGO_DB_URI ? "✅ Set" : "❌ NOT SET",
+    },
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoute);
