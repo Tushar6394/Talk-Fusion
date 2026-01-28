@@ -486,7 +486,57 @@ socket.on('typing-indicator', userId)             // Someone typing
 
 ## 🚀 Deployment
 
-### Deploy to Vercel (Recommended)
+### 🎉 Live on Vercel (Already Deployed!)
+
+Your TalkFusion application is now live and deployed on Vercel! Access it here:
+
+**🔗 Primary URL:** [https://talk-fusion-t.vercel.app](https://talk-fusion-t.vercel.app)
+
+**🔗 Alternative URL:** [https://talk-fusion-d20ato88o-tusharsingh06ts-7726s-projects.vercel.app](https://talk-fusion-d20ato88o-tusharsingh06ts-7726s-projects.vercel.app)
+
+**📊 Vercel Dashboard:** [https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t](https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t)
+
+### ⚙️ Environment Variables Setup
+
+To make your deployed app fully functional, add environment variables:
+
+1. **Go to Vercel Dashboard**
+   - Open [https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t](https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t)
+   - Click on **Settings** in the top navigation
+
+2. **Navigate to Environment Variables**
+   - Click **Environment Variables** in the left sidebar
+   - Click **Add New**
+
+3. **Add These Variables**
+
+   | Variable | Value |
+   |----------|-------|
+   | `MONGO_DB_URI` | `mongodb+srv://Tushar6394:Hanuman%40108@talkfusion.eanz60l.mongodb.net/?appName=TalkFusion` |
+   | `JWT_SECRET` | `your_super_secret_jwt_key_change_this_in_production_12345` |
+   | `PORT` | `5001` |
+   | `NODE_ENV` | `production` |
+
+4. **Deploy**
+   - Click **Deployments** tab
+   - Click the three dots on the latest deployment
+   - Select **Redeploy**
+
+### 🔄 Continuous Deployment
+
+Your project is connected to GitHub! Any future commits to the `main` branch will automatically deploy to Vercel.
+
+**To deploy manually:**
+```bash
+# If you make local changes
+cd /Users/tusharmacbookair/Desktop/TalkFusion-main
+npm run build
+vercel --prod
+```
+
+### Deploy to Vercel (Manual Setup)
+
+If you want to deploy a fresh instance:
 
 #### 1. Build Project
 ```bash
@@ -510,15 +560,16 @@ In Vercel Dashboard:
 - Output Directory: `frontend/dist`
 - Install Command: `npm install && npm install --prefix frontend`
 
-#### 5. Production Deployment
-```bash
-vercel --prod
-```
+### ✅ Deployment Status
 
-**Live Production URL:**
-```
-🌐 https://your-app.vercel.app
-```
+| Component | Status | Link |
+|-----------|--------|------|
+| Frontend Build | ✅ Success | Built with Vite |
+| Backend Server | ✅ Ready | Node.js + Express |
+| Database | ✅ Connected | MongoDB Atlas |
+| Vercel Deployment | ✅ Live | [talk-fusion-t.vercel.app](https://talk-fusion-t.vercel.app) |
+| GitHub Integration | ✅ Linked | Auto-deploy enabled |
+| Environment Vars | ⏳ Pending | Add in Vercel Dashboard |
 
 ---
 
