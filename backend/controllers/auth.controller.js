@@ -22,7 +22,13 @@ const login = async (req, res) => {
       profilePic: user.profilePic,
     });
   } catch (error) {
-    console.log("Error in Login Controller due to ", error);
+    console.error("Error in Login Controller due to ", error.message);
+    
+    // Check if it's a MongoDB connection error
+    if (error.message.includes("connect ECONNREFUSED") || error.message.includes("No servers") || error.message.includes("MONGODB")) {
+      return res.status(500).json({ error: "Database connection error. Please check MongoDB Atlas IP whitelist." });
+    }
+    
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -74,6 +80,12 @@ const signup = async (req, res) => {
   } catch (error) {
     console.error("Error in Signup Controller due to ", error.message);
     console.error("Full error:", error);
+    
+    // Check if it's a MongoDB connection error
+    if (error.message.includes("connect ECONNREFUSED") || error.message.includes("No servers") || error.message.includes("MONGODB")) {
+      return res.status(500).json({ error: "Database connection error. Please check MongoDB Atlas IP whitelist." });
+    }
+    
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
