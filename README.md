@@ -486,22 +486,22 @@ socket.on('typing-indicator', userId)             // Someone typing
 
 ## 🚀 Deployment
 
-### 🎉 Live on Vercel (Already Deployed!)
+### 🎉 Live on Vercel (Fresh Deployment)
 
-Your TalkFusion application is now live and deployed on Vercel! Access it here:
+Your TalkFusion application is now live and freshly deployed on Vercel! Access it here:
 
-**🔗 Primary URL:** [https://talk-fusion-t.vercel.app](https://talk-fusion-t.vercel.app)
+**🔗 Primary URL:** [https://talkfusion.vercel.app](https://talkfusion.vercel.app)
 
-**🔗 Alternative URL:** [https://talk-fusion-d20ato88o-tusharsingh06ts-7726s-projects.vercel.app](https://talk-fusion-d20ato88o-tusharsingh06ts-7726s-projects.vercel.app)
+**🔗 Alternative URL:** [https://talkfusion-3bs2nkl4k-tusharsingh06ts-7726s-projects.vercel.app](https://talkfusion-3bs2nkl4k-tusharsingh06ts-7726s-projects.vercel.app)
 
-**📊 Vercel Dashboard:** [https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t](https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t)
+**📊 Vercel Dashboard:** [https://vercel.com/tusharsingh06ts-7726s-projects/talkfusion](https://vercel.com/tusharsingh06ts-7726s-projects/talkfusion)
 
 ### ⚙️ Environment Variables Setup
 
 To make your deployed app fully functional, add environment variables:
 
 1. **Go to Vercel Dashboard**
-   - Open [https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t](https://vercel.com/tusharsingh06ts-7726s-projects/talk-fusion-t)
+   - Open [https://vercel.com/tusharsingh06ts-7726s-projects/talkfusion](https://vercel.com/tusharsingh06ts-7726s-projects/talkfusion)
    - Click on **Settings** in the top navigation
 
 2. **Navigate to Environment Variables**
@@ -524,7 +524,7 @@ To make your deployed app fully functional, add environment variables:
 
 ### 🔄 Continuous Deployment
 
-Your project is connected to GitHub! Any future commits to the `main` branch will automatically deploy to Vercel.
+Your project can be connected to GitHub for automatic deployments on every push!
 
 **To deploy manually:**
 ```bash
