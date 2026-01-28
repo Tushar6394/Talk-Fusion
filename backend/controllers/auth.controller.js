@@ -78,12 +78,17 @@ const signup = async (req, res) => {
       profilePic: newUser.profilePic,
     });
   } catch (error) {
-    console.error("Error in Signup Controller due to ", error.message);
-    console.error("Full error:", error);
+    console.error("❌ Error in Signup Controller:", error.message);
+    console.error("Stack:", error.stack);
     
     // Check if it's a MongoDB connection error
     if (error.message.includes("connect ECONNREFUSED") || error.message.includes("No servers") || error.message.includes("MONGODB")) {
       return res.status(500).json({ error: "Database connection error. Please check MongoDB Atlas IP whitelist." });
+    }
+    
+    // Check if it's a JWT error
+    if (error.message.includes("JWT") || error.message.includes("jwt")) {
+      return res.status(500).json({ error: "JWT configuration error. Check JWT_SECRET environment variable." });
     }
     
     res.status(500).json({ error: "Internal Server Error" });
