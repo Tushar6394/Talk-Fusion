@@ -33,7 +33,7 @@ const PORT = process.env.PORT || 5001; // Changed port to 5001
 app.use(cookieParser());
 app.use(express.json());
 
-// Health check endpoint
+// Health check endpoint (before static files)
 app.get("/health", (req, res) => {
   res.status(200).json({
     status: "✅ Backend is running",
@@ -47,11 +47,15 @@ app.get("/health", (req, res) => {
   });
 });
 
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoute);
+
+// Serve static files from frontend build
 app.use(express.static(path.join(rootDir, "/frontend/dist")));
 
+// Catch-all route for React SPA
 app.get("*", (req, res) => {
   res.sendFile(path.join(rootDir, "frontend", "dist", "index.html"));
 });
